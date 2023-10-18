@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acadForm", "acadForm.csproj", "{CE4FD635-7340-49E7-8936-9F19C72E2CCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab2", "lab2\lab2.csproj", "{C7FA8DB3-A1C5-4879-AA80-1511C0C23658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE4FD635-7340-49E7-8936-9F19C72E2CCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE4FD635-7340-49E7-8936-9F19C72E2CCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE4FD635-7340-49E7-8936-9F19C72E2CCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE4FD635-7340-49E7-8936-9F19C72E2CCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7FA8DB3-A1C5-4879-AA80-1511C0C23658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FA8DB3-A1C5-4879-AA80-1511C0C23658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FA8DB3-A1C5-4879-AA80-1511C0C23658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FA8DB3-A1C5-4879-AA80-1511C0C23658}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECD30E91-9554-4F2E-9544-030F3C45EAD2}
+	EndGlobalSection
+EndGlobal
