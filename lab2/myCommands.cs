@@ -87,6 +87,7 @@ namespace lab2
         /// PromptKeywordsOptions
         /// PromptPointOptions
         /// PromptSelectionOptions
+        /// PromptNestedEntityOptions
         /// =========================================================== 
         /// </summary>
         [CommandMethod("addAnEnt")]
