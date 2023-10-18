@@ -82,7 +82,12 @@ namespace lab2
         }
 
         /// <summary>
+        /// ===========================================================
         /// Resolución lab 2
+        /// PromptKeywordsOptions
+        /// PromptPointOptions
+        /// PromptSelectionOptions
+        /// =========================================================== 
         /// </summary>
         [CommandMethod("addAnEnt")]
         public void AddAnEnt()
