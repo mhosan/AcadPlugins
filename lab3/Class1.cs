@@ -31,7 +31,7 @@ public class adskClass
                 case "Circle":
 
                     // pick the center point of the circle 
-                    PromptPointOptions getPointOptions = new PromptPointOptions("Seleccioná el centro del circulómetro : ");
+                    PromptPointOptions getPointOptions = new PromptPointOptions("Seleccioná el centro del circulómetro a agregar : ");
                     PromptPointResult getPointResult = ed.GetPoint(getPointOptions);
                     // if ok 
                     if ((getPointResult.Status == PromptStatus.OK))
