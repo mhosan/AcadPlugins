@@ -25,7 +25,6 @@ namespace pruebaAcadForm
         {
 
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             MessageBox.Show("hola mundo!");
