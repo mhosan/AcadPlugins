@@ -37,9 +37,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(6, 6);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(473, 364);
+            this.treeView1.Size = new System.Drawing.Size(236, 236);
             this.treeView1.TabIndex = 0;
             // 
             // UserControl1
@@ -47,9 +47,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.treeView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(481, 372);
+            this.Size = new System.Drawing.Size(244, 244);
             this.ResumeLayout(false);
 
         }
