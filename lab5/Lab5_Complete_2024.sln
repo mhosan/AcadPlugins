@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5_Complete_2024", "Lab5_Complete_2024.csproj", "{42026CEA-B9A2-4D10-BF07-B7752FDA2EDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42026CEA-B9A2-4D10-BF07-B7752FDA2EDE}.Debug|x64.ActiveCfg = Debug|x64
+		{42026CEA-B9A2-4D10-BF07-B7752FDA2EDE}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05BEAB11-B8A4-4E24-A51D-413BA7DDC802}
+	EndGlobalSection
+EndGlobal
