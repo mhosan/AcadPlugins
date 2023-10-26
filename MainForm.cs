@@ -14,8 +14,7 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
-
-
+using System.Text.RegularExpressions;
 
 namespace pruebaAcadForm
 {
@@ -71,7 +70,18 @@ namespace pruebaAcadForm
                 HttpResponseMessage response = await client.PostAsync(url, formData);
                 lblResponseCode.Text = response.StatusCode.ToString();
                 string textoRespuesta = await response.Content.ReadAsStringAsync();
-                MessageBox.Show(textoRespuesta);
+                string patron = @"JSON\.parse\('([^']+)'\)";
+                Match match = Regex.Match(textoRespuesta, patron);
+                if (match.Success)
+                {
+                    string subStringBuscado = match.Groups[1].Value;
+                    MessageBox.Show(subStringBuscado);
+                    lblResponseString.Text = subStringBuscado;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el patrón en la respuesta");
+                }
             }
                 
         }
