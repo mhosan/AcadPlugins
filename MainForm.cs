@@ -23,6 +23,8 @@ namespace pruebaAcadForm
     {
         public Editor ed;
         public Document doc;
+        public string nuevaRutaArchivo;
+        public string nuevoNombreArchivo;
         public MainForm()
         {
             InitializeComponent();
@@ -39,10 +41,10 @@ namespace pruebaAcadForm
             string docName = doc.Name;
             string nombreArchivo = Path.GetFileName(docName);
             string directorio = Path.GetDirectoryName(docName);
-            string nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
+            nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
             lblStart.Text = $"EXPORTAR: {docName}";
             Database bd = HostApplicationServices.WorkingDatabase;
-            string nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
+            nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
             bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.Current);
             lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
         }
@@ -50,6 +52,28 @@ namespace pruebaAcadForm
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void btnRequest_Click(object sender, EventArgs e)
+        {
+            string url = "https://geo.arba.gov.ar/api-plano-control/evaluaplano";
+            var client = new HttpClient();
+            List<int> selectControles = new List<int> { 501, 502, 503 };
+            using (MultipartFormDataContent formData = new MultipartFormDataContent()) 
+            {
+                byte[] archivoBytes = System.IO.File.ReadAllBytes(nuevaRutaArchivo);
+                ByteArrayContent archivoContent = new ByteArrayContent(archivoBytes);
+                formData.Add(archivoContent, "file",nuevoNombreArchivo);
+                foreach (var valor in selectControles) 
+                {
+                    formData.Add(new StringContent(valor.ToString()), "selectControles");
+                }
+                HttpResponseMessage response = await client.PostAsync(url, formData);
+                lblResponseCode.Text = response.StatusCode.ToString();
+                string textoRespuesta = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(textoRespuesta);
+            }
+                
         }
     }
 }

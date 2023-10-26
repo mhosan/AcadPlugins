@@ -33,6 +33,8 @@ namespace pruebaAcadForm
             this.lblStart = new System.Windows.Forms.Label();
             this.lblEnd = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.lblResponseCode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -65,7 +67,7 @@ namespace pruebaAcadForm
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(427, 131);
+            this.btnClose.Location = new System.Drawing.Point(427, 149);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(82, 27);
             this.btnClose.TabIndex = 7;
@@ -73,11 +75,32 @@ namespace pruebaAcadForm
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(12, 139);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(102, 35);
+            this.btnRequest.TabIndex = 8;
+            this.btnRequest.Text = "Request";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
+            // lblResponseCode
+            // 
+            this.lblResponseCode.AutoSize = true;
+            this.lblResponseCode.Location = new System.Drawing.Point(12, 177);
+            this.lblResponseCode.Name = "lblResponseCode";
+            this.lblResponseCode.Size = new System.Drawing.Size(92, 13);
+            this.lblResponseCode.TabIndex = 9;
+            this.lblResponseCode.Text = "Código respuesta:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 166);
+            this.ClientSize = new System.Drawing.Size(521, 259);
+            this.Controls.Add(this.lblResponseCode);
+            this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.lblStart);
@@ -98,5 +121,7 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Label lblStart;
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.Label lblResponseCode;
     }
 }
