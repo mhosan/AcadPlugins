@@ -40,8 +40,7 @@ namespace lab2
                 ed = doc.Editor;
                 ed.WriteMessage("Hello, this is your first command.");
                 Database bd = HostApplicationServices.WorkingDatabase;
-
-
+                bd.DxfOut("pepeExportado", 16, DwgVersion.Current);
             }
         }
 

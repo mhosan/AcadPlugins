@@ -41,12 +41,14 @@ namespace pruebaAcadForm
             this.lstTextStyle = new System.Windows.Forms.ListBox();
             this.lstLineType = new System.Windows.Forms.ListBox();
             this.lstLayer = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnDisplay);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -57,7 +59,6 @@ namespace pruebaAcadForm
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contenedores";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnClear
             // 
@@ -165,6 +166,16 @@ namespace pruebaAcadForm
             this.lstLayer.Size = new System.Drawing.Size(120, 238);
             this.lstLayer.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(38, 145);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 35);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Click aca!";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +211,6 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
