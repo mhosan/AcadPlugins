@@ -8,10 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
+
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
+
 
 
 namespace pruebaAcadForm
@@ -37,11 +40,16 @@ namespace pruebaAcadForm
             string nombreArchivo = Path.GetFileName(docName);
             string directorio = Path.GetDirectoryName(docName);
             string nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
-            ed.WriteMessage("Comienza exportación de " + nombreArchivo);
+            lblStart.Text = $"EXPORTAR: {docName}";
             Database bd = HostApplicationServices.WorkingDatabase;
             string nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
             bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.Current);
-            ed.WriteMessage($"Archivo exportado: {nuevoNombreArchivo}!!!");
+            lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
