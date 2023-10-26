@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,10 +33,15 @@ namespace pruebaAcadForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ed.WriteMessage("Comienza exportación...!!!");
+            string docName = doc.Name;
+            string nombreArchivo = Path.GetFileName(docName);
+            string directorio = Path.GetDirectoryName(docName);
+            string nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
+            ed.WriteMessage("Comienza exportación de " + nombreArchivo);
             Database bd = HostApplicationServices.WorkingDatabase;
-            bd.DxfOut("C:\\Users\\marcelo.hosan\\Desktop\\cadFolder\\pepeExportado.dxf", 16, DwgVersion.Current);
-            ed.WriteMessage("Archivo exportado!!!");
+            string nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
+            bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.Current);
+            ed.WriteMessage($"Archivo exportado: {nuevoNombreArchivo}!!!");
         }
     }
 }
