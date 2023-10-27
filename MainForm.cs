@@ -9,12 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
-using System.Text.RegularExpressions;
+
 
 namespace pruebaAcadForm
 {
@@ -70,17 +71,35 @@ namespace pruebaAcadForm
                 HttpResponseMessage response = await client.PostAsync(url, formData);
                 lblResponseCode.Text = response.StatusCode.ToString();
                 string textoRespuesta = await response.Content.ReadAsStringAsync();
-                string patron = @"JSON\.parse\('([^']+)'\)";
-                Match match = Regex.Match(textoRespuesta, patron);
-                if (match.Success)
+
+                //string patron = @"var respuesta = JSON\.parse\('([^']+)'\)";
+                //Match match = Regex.Match(textoRespuesta, patron);
+                //if (match.Success)
+                //{
+                //    string subStringBuscado = match.Groups[4].Value;
+                //    MessageBox.Show(subStringBuscado);
+                //    lblResponseString.Text = subStringBuscado;
+                //    //var controlList = JsonConvert.DeserializeObject<Control[]>(subStringBuscado);
+                //    string[] substrings = subStringBuscado.Split(',');
+                //    foreach (string substring in substrings)
+                //        {
+                //            MessageBox.Show(substring);
+                //        }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("No se encontró el patrón en la respuesta");
+                //}
+                int indiceInicio = textoRespuesta.IndexOf("var respuesta = ");
+                int indiceFin = textoRespuesta.IndexOf("numero_requerimiento");
+                if (indiceInicio != -1 && indiceFin != -1)
                 {
-                    string subStringBuscado = match.Groups[1].Value;
-                    MessageBox.Show(subStringBuscado);
-                    lblResponseString.Text = subStringBuscado;
+                    string extraido = textoRespuesta.Substring(indiceInicio, indiceFin - indiceInicio);
+                    MessageBox.Show(extraido);
                 }
-                else
+                else 
                 {
-                    MessageBox.Show("No se encontró el patrón en la respuesta");
+                    MessageBox.Show("no se encontró...");
                 }
             }
                 

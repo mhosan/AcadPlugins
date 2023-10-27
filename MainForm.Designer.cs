@@ -68,7 +68,7 @@ namespace pruebaAcadForm
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(427, 149);
+            this.btnClose.Location = new System.Drawing.Point(427, 217);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(82, 27);
             this.btnClose.TabIndex = 7;
