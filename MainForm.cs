@@ -51,7 +51,7 @@ namespace pruebaAcadForm
             
             ///DwgVersion.AC1021 corresponde a Autocad 2007
             bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
-            lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
+            txtResponse.Text = $"RESULTADO: {nuevaRutaArchivo}";
         }
         /// <summary>
         /// Cerrar el formulario 
@@ -107,7 +107,7 @@ namespace pruebaAcadForm
                 if (indiceInicio != -1 && indiceFin != -1)
                 {
                     string extraido = textoRespuesta.Substring(indiceInicio, indiceFin - indiceInicio);
-                    lblResponseString.Text = extraido;
+                    txtResponseString.Text = extraido;
                 }
                 else 
                 {

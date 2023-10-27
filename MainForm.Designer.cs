@@ -35,7 +35,8 @@ namespace pruebaAcadForm
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRequest = new System.Windows.Forms.Button();
             this.lblResponseCode = new System.Windows.Forms.Label();
-            this.lblResponseString = new System.Windows.Forms.Label();
+            this.txtResponse = new System.Windows.Forms.TextBox();
+            this.txtResponseString = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -89,28 +90,37 @@ namespace pruebaAcadForm
             // lblResponseCode
             // 
             this.lblResponseCode.AutoSize = true;
-            this.lblResponseCode.Location = new System.Drawing.Point(12, 177);
+            this.lblResponseCode.Location = new System.Drawing.Point(123, 150);
             this.lblResponseCode.Name = "lblResponseCode";
             this.lblResponseCode.Size = new System.Drawing.Size(92, 13);
             this.lblResponseCode.TabIndex = 9;
             this.lblResponseCode.Text = "Código respuesta:";
             // 
-            // lblResponseString
+            // txtResponse
             // 
-            this.lblResponseString.AutoSize = true;
-            this.lblResponseString.Location = new System.Drawing.Point(15, 195);
-            this.lblResponseString.MaximumSize = new System.Drawing.Size(500, 200);
-            this.lblResponseString.Name = "lblResponseString";
-            this.lblResponseString.Size = new System.Drawing.Size(62, 13);
-            this.lblResponseString.TabIndex = 10;
-            this.lblResponseString.Text = "String leido:";
+            this.txtResponse.Location = new System.Drawing.Point(120, 77);
+            this.txtResponse.Multiline = true;
+            this.txtResponse.Name = "txtResponse";
+            this.txtResponse.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtResponse.Size = new System.Drawing.Size(389, 48);
+            this.txtResponse.TabIndex = 11;
+            // 
+            // txtResponseString
+            // 
+            this.txtResponseString.Location = new System.Drawing.Point(120, 177);
+            this.txtResponseString.Multiline = true;
+            this.txtResponseString.Name = "txtResponseString";
+            this.txtResponseString.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtResponseString.Size = new System.Drawing.Size(389, 100);
+            this.txtResponseString.TabIndex = 12;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 321);
-            this.Controls.Add(this.lblResponseString);
+            this.Controls.Add(this.txtResponseString);
+            this.Controls.Add(this.txtResponse);
             this.Controls.Add(this.lblResponseCode);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.btnClose);
@@ -135,6 +145,7 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Label lblResponseCode;
-        private System.Windows.Forms.Label lblResponseString;
+        private System.Windows.Forms.TextBox txtResponse;
+        private System.Windows.Forms.TextBox txtResponseString;
     }
 }
