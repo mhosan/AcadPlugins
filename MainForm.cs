@@ -36,24 +36,34 @@ namespace pruebaAcadForm
             ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
         }
 
+        /// <summary>
+        /// Exportar a dxf
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             string docName = doc.Name;
-            string nombreArchivo = Path.GetFileName(docName);
+            string nombreArchivo = "prototipo" + Path.GetFileName(docName);
             string directorio = Path.GetDirectoryName(docName);
             nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
             lblStart.Text = $"EXPORTAR: {docName}";
             Database bd = HostApplicationServices.WorkingDatabase;
             nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
-            bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.Current);
+            
+            ///DwgVersion.AC1021 corresponde a Autocad 2007
+            bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
             lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
         }
-
+        /// <summary>
+        /// Cerrar el formulario 
+        /// </summary>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Enviar request 
+        /// </summary>
         private async void btnRequest_Click(object sender, EventArgs e)
         {
             string url = "https://geo.arba.gov.ar/api-plano-control/evaluaplano";
@@ -61,6 +71,8 @@ namespace pruebaAcadForm
             List<int> selectControles = new List<int> { 501, 502, 503 };
             using (MultipartFormDataContent formData = new MultipartFormDataContent()) 
             {
+                //var archivito = doc.Name;
+                //byte[] archivoBytes = System.IO.File.ReadAllBytes(archivito);
                 byte[] archivoBytes = System.IO.File.ReadAllBytes(nuevaRutaArchivo);
                 ByteArrayContent archivoContent = new ByteArrayContent(archivoBytes);
                 formData.Add(archivoContent, "file",nuevoNombreArchivo);
@@ -95,14 +107,13 @@ namespace pruebaAcadForm
                 if (indiceInicio != -1 && indiceFin != -1)
                 {
                     string extraido = textoRespuesta.Substring(indiceInicio, indiceFin - indiceInicio);
-                    MessageBox.Show(extraido);
+                    lblResponseString.Text = extraido;
                 }
                 else 
                 {
                     MessageBox.Show("no se encontró...");
                 }
             }
-                
         }
     }
 }

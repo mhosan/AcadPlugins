@@ -68,7 +68,7 @@ namespace pruebaAcadForm
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(427, 217);
+            this.btnClose.Location = new System.Drawing.Point(427, 282);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(82, 27);
             this.btnClose.TabIndex = 7;
@@ -98,7 +98,8 @@ namespace pruebaAcadForm
             // lblResponseString
             // 
             this.lblResponseString.AutoSize = true;
-            this.lblResponseString.Location = new System.Drawing.Point(11, 201);
+            this.lblResponseString.Location = new System.Drawing.Point(15, 195);
+            this.lblResponseString.MaximumSize = new System.Drawing.Size(500, 200);
             this.lblResponseString.Name = "lblResponseString";
             this.lblResponseString.Size = new System.Drawing.Size(62, 13);
             this.lblResponseString.TabIndex = 10;
@@ -108,7 +109,7 @@ namespace pruebaAcadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 259);
+            this.ClientSize = new System.Drawing.Size(521, 321);
             this.Controls.Add(this.lblResponseString);
             this.Controls.Add(this.lblResponseCode);
             this.Controls.Add(this.btnRequest);
