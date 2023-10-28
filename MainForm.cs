@@ -102,12 +102,13 @@ namespace pruebaAcadForm
                 //{
                 //    MessageBox.Show("No se encontró el patrón en la respuesta");
                 //}
-                int indiceInicio = textoRespuesta.IndexOf("var respuesta = ");
-                int indiceFin = textoRespuesta.IndexOf("numero_requerimiento");
+                int indiceInicio = textoRespuesta.IndexOf("('{\"resultado\"");
+                int indiceFin = textoRespuesta.IndexOf(".replace(/");
                 if (indiceInicio != -1 && indiceFin != -1)
                 {
-                    string extraido = textoRespuesta.Substring(indiceInicio, indiceFin - indiceInicio);
+                    string extraido = textoRespuesta.Substring(indiceInicio, indiceFin - indiceInicio) + ")";
                     txtResponseString.Text = extraido;
+                    //pasar extraido a json
                 }
                 else 
                 {
