@@ -9,12 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
-using System.Text.RegularExpressions;
+//using System.Web.Extensions
+//using Newtonsoft.Json;
 
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
+using System.Dynamic;
+using System.Diagnostics;
 
 
 namespace pruebaAcadForm
@@ -107,12 +110,34 @@ namespace pruebaAcadForm
                 if (indiceInicio != -1 && indiceFin != -1)
                 {
                     string extraido = textoRespuesta.Substring(indiceInicio, indiceFin - indiceInicio) + ")";
-                    txtResponseString.Text = extraido;
-                    //pasar extraido a json
+                    // Eliminar el primer y último carácter (comillas dobles)
+                    if (extraido.Length > 1)
+                    {
+                        extraido = extraido.Substring(1);
+                        extraido = extraido.Substring(0, extraido.Length - 1);
+                        txtResponseString.Text = extraido;
+                    }
+                    else 
+                    {
+                        // Si la cadena tiene longitud 1 o menos 
+                        txtResponseString.Text = string.Empty;
+                    }
+                    //dynamic miObjeto = new ExpandoObject();
+                    // Deserializar el string JSON a un objeto C#
+                    //miObjeto = JsonConvert.DeserializeObject(txtResponseString.Text);
+                    //var queEs = miObjeto.GetType();
+                    var delimiters = new char[] { ',', '[', ']', '{', '}'};
+                    var arrayExtraido = extraido.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var substring in arrayExtraido)
+                    {
+                        Debug.WriteLine(substring);
+                    }
+
+
                 }
                 else 
                 {
-                    MessageBox.Show("no se encontró...");
+                    MessageBox.Show("no se encontró respuesta en el resonse...");
                 }
             }
         }
