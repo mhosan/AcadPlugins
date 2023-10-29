@@ -67,9 +67,9 @@ namespace pruebaAcadForm
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(427, 287);
+            this.btnClose.Location = new System.Drawing.Point(421, 282);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(82, 27);
+            this.btnClose.Size = new System.Drawing.Size(82, 29);
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@ namespace pruebaAcadForm
             // 
             // btnRequest
             // 
-            this.btnRequest.Location = new System.Drawing.Point(12, 139);
+            this.btnRequest.Location = new System.Drawing.Point(12, 102);
             this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(102, 35);
+            this.btnRequest.Size = new System.Drawing.Size(102, 34);
             this.btnRequest.TabIndex = 8;
             this.btnRequest.Text = "Request";
             this.btnRequest.UseVisualStyleBackColor = true;
@@ -88,16 +88,16 @@ namespace pruebaAcadForm
             // lboxResponse
             // 
             this.lboxResponse.FormattingEnabled = true;
-            this.lboxResponse.Location = new System.Drawing.Point(119, 143);
+            this.lboxResponse.Location = new System.Drawing.Point(120, 102);
             this.lboxResponse.Name = "lboxResponse";
-            this.lboxResponse.Size = new System.Drawing.Size(303, 173);
+            this.lboxResponse.Size = new System.Drawing.Size(383, 173);
             this.lboxResponse.TabIndex = 13;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 321);
+            this.ClientSize = new System.Drawing.Size(515, 318);
             this.Controls.Add(this.lboxResponse);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.btnClose);
@@ -107,7 +107,7 @@ namespace pruebaAcadForm
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Formulario de prueba";
+            this.Text = "Preview controles geográficos";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);

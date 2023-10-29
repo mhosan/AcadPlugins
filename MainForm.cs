@@ -9,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
-//using System.Web.Extensions
-//using Newtonsoft.Json;
 
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
@@ -133,7 +131,14 @@ namespace pruebaAcadForm
                     //{
                     //    Debug.WriteLine(substring);
                     //}
-                    lboxResponse.Items.AddRange(arrayExtraido);
+                    // Convertir el array en una lista de strings
+                    List<string> listExtraido = new List<string>(arrayExtraido);
+                    foreach (var elemento in listExtraido)
+                    {
+                        if (elemento.Length > 1) { 
+                            lboxResponse.Items.Add(elemento);
+                        }
+                    }
                 }
                 else 
                 {
