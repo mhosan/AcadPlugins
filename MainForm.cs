@@ -132,7 +132,7 @@ namespace pruebaAcadForm
                     {
                         Debug.WriteLine(substring);
                     }
-
+                    lboxResponse.Items.AddRange(arrayExtraido);
 
                 }
                 else 

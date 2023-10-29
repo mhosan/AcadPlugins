@@ -37,6 +37,7 @@ namespace pruebaAcadForm
             this.lblResponseCode = new System.Windows.Forms.Label();
             this.txtResponse = new System.Windows.Forms.TextBox();
             this.txtResponseString = new System.Windows.Forms.TextBox();
+            this.lboxResponse = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // button1
@@ -114,11 +115,20 @@ namespace pruebaAcadForm
             this.txtResponseString.Size = new System.Drawing.Size(389, 100);
             this.txtResponseString.TabIndex = 12;
             // 
+            // lboxResponse
+            // 
+            this.lboxResponse.FormattingEnabled = true;
+            this.lboxResponse.Location = new System.Drawing.Point(533, 13);
+            this.lboxResponse.Name = "lboxResponse";
+            this.lboxResponse.Size = new System.Drawing.Size(313, 303);
+            this.lboxResponse.TabIndex = 13;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 321);
+            this.ClientSize = new System.Drawing.Size(877, 321);
+            this.Controls.Add(this.lboxResponse);
             this.Controls.Add(this.txtResponseString);
             this.Controls.Add(this.txtResponse);
             this.Controls.Add(this.lblResponseCode);
@@ -147,5 +157,6 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Label lblResponseCode;
         private System.Windows.Forms.TextBox txtResponse;
         private System.Windows.Forms.TextBox txtResponseString;
+        private System.Windows.Forms.ListBox lboxResponse;
     }
 }
