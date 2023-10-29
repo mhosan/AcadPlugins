@@ -34,7 +34,6 @@ namespace pruebaAcadForm
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("hola mundo!");
             doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
         }
@@ -49,13 +48,16 @@ namespace pruebaAcadForm
             string directorio = Path.GetDirectoryName(docName);
             nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
             lblStart.Text = $"EXPORTAR: {docName}";
+            
             Database bd = HostApplicationServices.WorkingDatabase;
             nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
             
             ///DwgVersion.AC1021 corresponde a Autocad 2007
             bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
-            txtResponse.Text = $"RESULTADO: {nuevaRutaArchivo}";
+            lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
         }
+                
+        
         /// <summary>
         /// Cerrar el formulario 
         /// </summary>
@@ -63,6 +65,7 @@ namespace pruebaAcadForm
         {
             this.Close();
         }
+
 
         /// <summary>
         /// Enviar request 
@@ -84,7 +87,6 @@ namespace pruebaAcadForm
                     formData.Add(new StringContent(valor.ToString()), "selectControles");
                 }
                 HttpResponseMessage response = await client.PostAsync(url, formData);
-                lblResponseCode.Text = response.StatusCode.ToString();
                 string textoRespuesta = await response.Content.ReadAsStringAsync();
 
                 //string patron = @"var respuesta = JSON\.parse\('([^']+)'\)";
@@ -115,25 +117,23 @@ namespace pruebaAcadForm
                     {
                         extraido = extraido.Substring(1);
                         extraido = extraido.Substring(0, extraido.Length - 1);
-                        txtResponseString.Text = extraido;
                     }
                     else 
                     {
                         // Si la cadena tiene longitud 1 o menos 
-                        txtResponseString.Text = string.Empty;
+                        extraido = string.Empty;
                     }
                     //dynamic miObjeto = new ExpandoObject();
                     // Deserializar el string JSON a un objeto C#
-                    //miObjeto = JsonConvert.DeserializeObject(txtResponseString.Text);
+                    //miObjeto = JsonConvert.DeserializeObject(extraido);
                     //var queEs = miObjeto.GetType();
                     var delimiters = new char[] { ',', '[', ']', '{', '}'};
                     var arrayExtraido = extraido.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var substring in arrayExtraido)
-                    {
-                        Debug.WriteLine(substring);
-                    }
+                    //foreach (var substring in arrayExtraido)
+                    //{
+                    //    Debug.WriteLine(substring);
+                    //}
                     lboxResponse.Items.AddRange(arrayExtraido);
-
                 }
                 else 
                 {

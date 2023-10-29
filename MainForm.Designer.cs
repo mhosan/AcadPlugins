@@ -34,9 +34,6 @@ namespace pruebaAcadForm
             this.lblEnd = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRequest = new System.Windows.Forms.Button();
-            this.lblResponseCode = new System.Windows.Forms.Label();
-            this.txtResponse = new System.Windows.Forms.TextBox();
-            this.txtResponseString = new System.Windows.Forms.TextBox();
             this.lboxResponse = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -70,7 +67,7 @@ namespace pruebaAcadForm
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(427, 282);
+            this.btnClose.Location = new System.Drawing.Point(427, 287);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(82, 27);
             this.btnClose.TabIndex = 7;
@@ -88,50 +85,20 @@ namespace pruebaAcadForm
             this.btnRequest.UseVisualStyleBackColor = true;
             this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
-            // lblResponseCode
-            // 
-            this.lblResponseCode.AutoSize = true;
-            this.lblResponseCode.Location = new System.Drawing.Point(123, 150);
-            this.lblResponseCode.Name = "lblResponseCode";
-            this.lblResponseCode.Size = new System.Drawing.Size(92, 13);
-            this.lblResponseCode.TabIndex = 9;
-            this.lblResponseCode.Text = "Código respuesta:";
-            // 
-            // txtResponse
-            // 
-            this.txtResponse.Location = new System.Drawing.Point(120, 77);
-            this.txtResponse.Multiline = true;
-            this.txtResponse.Name = "txtResponse";
-            this.txtResponse.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResponse.Size = new System.Drawing.Size(389, 48);
-            this.txtResponse.TabIndex = 11;
-            // 
-            // txtResponseString
-            // 
-            this.txtResponseString.Location = new System.Drawing.Point(120, 177);
-            this.txtResponseString.Multiline = true;
-            this.txtResponseString.Name = "txtResponseString";
-            this.txtResponseString.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResponseString.Size = new System.Drawing.Size(389, 100);
-            this.txtResponseString.TabIndex = 12;
-            // 
             // lboxResponse
             // 
             this.lboxResponse.FormattingEnabled = true;
-            this.lboxResponse.Location = new System.Drawing.Point(533, 13);
+            this.lboxResponse.Location = new System.Drawing.Point(119, 143);
             this.lboxResponse.Name = "lboxResponse";
-            this.lboxResponse.Size = new System.Drawing.Size(313, 303);
+            this.lboxResponse.Size = new System.Drawing.Size(303, 173);
             this.lboxResponse.TabIndex = 13;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 321);
+            this.ClientSize = new System.Drawing.Size(515, 321);
             this.Controls.Add(this.lboxResponse);
-            this.Controls.Add(this.txtResponseString);
-            this.Controls.Add(this.txtResponse);
-            this.Controls.Add(this.lblResponseCode);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblEnd);
@@ -154,9 +121,6 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Label lblResponseCode;
-        private System.Windows.Forms.TextBox txtResponse;
-        private System.Windows.Forms.TextBox txtResponseString;
         private System.Windows.Forms.ListBox lboxResponse;
     }
 }
