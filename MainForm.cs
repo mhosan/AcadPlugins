@@ -43,19 +43,45 @@ namespace pruebaAcadForm
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
-            string docName = doc.Name;
-            string nombreArchivo = "prototipo" + Path.GetFileName(docName);
-            string directorio = Path.GetDirectoryName(docName);
-            nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
-            //lblStart.Text = $"EXPORTAR: {docName}";
+            Util RecuperarControles = new Util();
+            Task <List<string>> misControles = RecuperarControles.ListControles();
+            misControles.ContinueWith(t =>
+            {
+                if (t.Status == TaskStatus.RanToCompletion)
+                {
+                    // Obtener el resultado de la tarea
+                    List<string> listaControles = t.Result;
 
-            Database bd = HostApplicationServices.WorkingDatabase;
-            nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
+                    // Ahora puedes manejar la lista de controles
+                    foreach (var control in listaControles)
+                    {
+                        // Haz algo con cada control en la lista
+                        //MessageBox.Show(control);
+                    }
 
-            ///DwgVersion.AC1021 corresponde a Autocad 2007
-            bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
-            //lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
-            _ = makeRequest();
+                    // O muestra la lista en un MessageBox si eso es lo que deseas hacer
+                    MessageBox.Show("Operación leer listado de controles completada.");
+
+                    string docName = doc.Name;
+                    string nombreArchivo = "prototipo" + Path.GetFileName(docName);
+                    string directorio = Path.GetDirectoryName(docName);
+                    nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
+                    //lblStart.Text = $"EXPORTAR: {docName}";
+
+                    Database bd = HostApplicationServices.WorkingDatabase;
+                    nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
+
+                    ///DwgVersion.AC1021 corresponde a Autocad 2007
+                    bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
+                    //lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
+                    _ = makeRequest();
+                }
+                else if (t.IsFaulted)
+                {
+                    // Manejar excepciones si la tarea falla
+                    MessageBox.Show("Error: " + t.Exception.InnerException.Message);
+                }
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
 
