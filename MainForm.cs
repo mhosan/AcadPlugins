@@ -47,14 +47,14 @@ namespace pruebaAcadForm
             string nombreArchivo = "prototipo" + Path.GetFileName(docName);
             string directorio = Path.GetDirectoryName(docName);
             nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
-            lblStart.Text = $"EXPORTAR: {docName}";
+            //lblStart.Text = $"EXPORTAR: {docName}";
 
             Database bd = HostApplicationServices.WorkingDatabase;
             nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
 
             ///DwgVersion.AC1021 corresponde a Autocad 2007
             bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
-            lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
+            //lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
             _ = makeRequest();
         }
 
