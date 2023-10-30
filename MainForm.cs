@@ -36,8 +36,10 @@ namespace pruebaAcadForm
             ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
         }
 
+
         /// <summary>
-        /// Exportar a dxf
+        /// Exportar a dxf y despachar el request
+        ///  private void button1_Click(object sender, EventArgs e)
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
@@ -46,33 +48,25 @@ namespace pruebaAcadForm
             string directorio = Path.GetDirectoryName(docName);
             nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
             lblStart.Text = $"EXPORTAR: {docName}";
-            
+
             Database bd = HostApplicationServices.WorkingDatabase;
             nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
-            
+
             ///DwgVersion.AC1021 corresponde a Autocad 2007
             bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
             lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
-        }
-                
-        
-        /// <summary>
-        /// Cerrar el formulario 
-        /// </summary>
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            _ = makeRequest();
         }
 
 
         /// <summary>
         /// Enviar request 
         /// </summary>
-        private async void btnRequest_Click(object sender, EventArgs e)
+        private async Task makeRequest()
         {
             string url = "https://geo.arba.gov.ar/api-plano-control/evaluaplano";
             var client = new HttpClient();
-            List<int> selectControles = new List<int> { 501, 502, 503 };
+            List<int> selectControles = new List<int> { 501, 502, 508 };
             using (MultipartFormDataContent formData = new MultipartFormDataContent()) 
             {
                 //var archivito = doc.Name;
@@ -135,8 +129,9 @@ namespace pruebaAcadForm
                     List<string> listExtraido = new List<string>(arrayExtraido);
                     foreach (var elemento in listExtraido)
                     {
-                        if (elemento.Length > 1) { 
+                        if (elemento.Length > 1) {
                             lboxResponse.Items.Add(elemento);
+                            
                         }
                     }
                 }
@@ -146,5 +141,16 @@ namespace pruebaAcadForm
                 }
             }
         }
+
+
+        /// <summary>
+        /// Cerrar el formulario 
+        /// </summary>
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }
