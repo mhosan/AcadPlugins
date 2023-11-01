@@ -49,36 +49,29 @@ namespace pruebaAcadForm
             {
                 if (t.Status == TaskStatus.RanToCompletion)
                 {
-                    // Obtener el resultado de la tarea
                     List<string> listaControles = t.Result;
 
-                    // Ahora puedes manejar la lista de controles
                     foreach (var control in listaControles)
                     {
-                        // Haz algo con cada control en la lista
                         //MessageBox.Show(control);
                     }
 
-                    // O muestra la lista en un MessageBox si eso es lo que deseas hacer
-                    MessageBox.Show("Operación leer listado de controles completada.");
+                    //MessageBox.Show("Operación leer listado de controles completada.");
 
                     string docName = doc.Name;
                     string nombreArchivo = "prototipo" + Path.GetFileName(docName);
                     string directorio = Path.GetDirectoryName(docName);
                     nuevoNombreArchivo = Path.ChangeExtension(nombreArchivo, ".dxf");
-                    //lblStart.Text = $"EXPORTAR: {docName}";
 
                     Database bd = HostApplicationServices.WorkingDatabase;
                     nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
 
                     ///DwgVersion.AC1021 corresponde a Autocad 2007
                     bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
-                    //lblEnd.Text = $"RESULTADO: {nuevaRutaArchivo}";
                     _ = makeRequest();
                 }
                 else if (t.IsFaulted)
                 {
-                    // Manejar excepciones si la tarea falla
                     MessageBox.Show("Error: " + t.Exception.InnerException.Message);
                 }
             }, TaskScheduler.FromCurrentSynchronizationContext());
@@ -95,11 +88,9 @@ namespace pruebaAcadForm
             List<int> selectControles = new List<int> { 501, 502, 508 };
             using (MultipartFormDataContent formData = new MultipartFormDataContent()) 
             {
-                //var archivito = doc.Name;
-                //byte[] archivoBytes = System.IO.File.ReadAllBytes(archivito);
                 byte[] archivoBytes = System.IO.File.ReadAllBytes(nuevaRutaArchivo);
                 ByteArrayContent archivoContent = new ByteArrayContent(archivoBytes);
-                formData.Add(archivoContent, "file",nuevoNombreArchivo);
+                formData.Add(archivoContent, "file", nuevoNombreArchivo);
                 foreach (var valor in selectControles) 
                 {
                     formData.Add(new StringContent(valor.ToString()), "selectControles");
@@ -107,24 +98,6 @@ namespace pruebaAcadForm
                 HttpResponseMessage response = await client.PostAsync(url, formData);
                 string textoRespuesta = await response.Content.ReadAsStringAsync();
 
-                //string patron = @"var respuesta = JSON\.parse\('([^']+)'\)";
-                //Match match = Regex.Match(textoRespuesta, patron);
-                //if (match.Success)
-                //{
-                //    string subStringBuscado = match.Groups[4].Value;
-                //    MessageBox.Show(subStringBuscado);
-                //    lblResponseString.Text = subStringBuscado;
-                //    //var controlList = JsonConvert.DeserializeObject<Control[]>(subStringBuscado);
-                //    string[] substrings = subStringBuscado.Split(',');
-                //    foreach (string substring in substrings)
-                //        {
-                //            MessageBox.Show(substring);
-                //        }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("No se encontró el patrón en la respuesta");
-                //}
                 int indiceInicio = textoRespuesta.IndexOf("('{\"resultado\"");
                 int indiceFin = textoRespuesta.IndexOf(".replace(/");
                 if (indiceInicio != -1 && indiceFin != -1)
@@ -157,13 +130,12 @@ namespace pruebaAcadForm
                     {
                         if (elemento.Length > 1) {
                             lboxResponse.Items.Add(elemento);
-                            
                         }
                     }
                 }
                 else 
                 {
-                    MessageBox.Show("no se encontró respuesta en el resonse...");
+                    MessageBox.Show("no se encontró respuesta en el response...");
                 }
             }
         }
