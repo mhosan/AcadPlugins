@@ -48,7 +48,8 @@ namespace pruebaAcadForm
                     {
                         if (elemento.Contains("\"id\":"))
                         {
-                            listaControles.Add(elemento);
+                            string elementoId = elemento.Substring(5);
+                            listaControles.Add(elementoId);
                         }
                         
                     }
