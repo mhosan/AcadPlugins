@@ -53,7 +53,7 @@ namespace pruebaAcadForm
 
                     foreach (var control in listaControles)
                     {
-                        //MessageBox.Show(control);
+                        MessageBox.Show(control);
                     }
 
                     //MessageBox.Show("Operación leer listado de controles completada.");
