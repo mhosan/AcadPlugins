@@ -26,6 +26,7 @@ namespace pruebaAcadForm
         public Document doc;
         public string nuevaRutaArchivo;
         public string nuevoNombreArchivo;
+        public List<int> listaControles;
         public MainForm()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace pruebaAcadForm
         {
             doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
+            listaControles = new List<int>();
         }
 
 
@@ -44,19 +46,17 @@ namespace pruebaAcadForm
         private void button1_Click(object sender, EventArgs e)
         {
             Util RecuperarControles = new Util();
-            Task <List<string>> misControles = RecuperarControles.ListControles();
+            Task <List<int>> misControles = RecuperarControles.ListControles();
             misControles.ContinueWith(t =>
             {
                 if (t.Status == TaskStatus.RanToCompletion)
                 {
-                    List<string> listaControles = t.Result;
+                    listaControles = t.Result;
 
-                    foreach (var control in listaControles)
-                    {
-                        MessageBox.Show(control);
-                    }
-
-                    //MessageBox.Show("Operación leer listado de controles completada.");
+                    //foreach (var control in listaControles)
+                    //{
+                    //    MessageBox.Show(control);
+                    //}
 
                     string docName = doc.Name;
                     string nombreArchivo = "prototipo" + Path.GetFileName(docName);
@@ -68,7 +68,7 @@ namespace pruebaAcadForm
 
                     ///DwgVersion.AC1021 corresponde a Autocad 2007
                     bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
-                    _ = makeRequest();
+                    _ = makeRequest(listaControles);
                 }
                 else if (t.IsFaulted)
                 {
@@ -81,17 +81,18 @@ namespace pruebaAcadForm
         /// <summary>
         /// Enviar request 
         /// </summary>
-        private async Task makeRequest()
+        private async Task makeRequest(List<int> listaControles)
         {
             string url = "https://geo.arba.gov.ar/api-plano-control/evaluaplano";
             var client = new HttpClient();
-            List<int> selectControles = new List<int> { 501, 502, 508 };
+            //List<int> selectControles = new List<int> { 501, 502, 508 };
+            List<int> selectControles = listaControles;
             using (MultipartFormDataContent formData = new MultipartFormDataContent()) 
             {
                 byte[] archivoBytes = System.IO.File.ReadAllBytes(nuevaRutaArchivo);
                 ByteArrayContent archivoContent = new ByteArrayContent(archivoBytes);
                 formData.Add(archivoContent, "file", nuevoNombreArchivo);
-                foreach (var valor in selectControles) 
+                foreach (var valor in listaControles) 
                 {
                     formData.Add(new StringContent(valor.ToString()), "selectControles");
                 }

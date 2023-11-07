@@ -12,10 +12,11 @@ namespace pruebaAcadForm
 {
     internal class Util
     {
-        public async Task <List<string>> ListControles() {
+        public async Task <List<int>> ListControles() {
             
             //await Task.Delay(1000); // Ejemplo de operación asincrónica simulada de 1 segundo
             List<string> listaControles = new List<string>();
+            List<int> listaControlesEnteros = new List<int>();
           
             string url = "https://geo.arba.gov.ar/api-plano-control/controles";
             var client = new HttpClient();
@@ -50,6 +51,7 @@ namespace pruebaAcadForm
                         {
                             string elementoId = elemento.Substring(5);
                             listaControles.Add(elementoId);
+                            listaControlesEnteros.Add(int.Parse(elementoId));
                         }
                         
                     }
@@ -61,7 +63,7 @@ namespace pruebaAcadForm
                 // Si la solicitud no fue exitosa, manejar el error según sea necesario
                 Debug.WriteLine($"Error en la solicitud: {response.StatusCode}");
             }
-            return listaControles;
+            return listaControlesEnteros;
         }
 
     }
