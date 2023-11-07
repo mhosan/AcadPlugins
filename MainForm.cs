@@ -16,6 +16,7 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using System.Dynamic;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 
 namespace pruebaAcadForm
@@ -121,18 +122,40 @@ namespace pruebaAcadForm
                     //var queEs = miObjeto.GetType();
                     var delimiters = new char[] { ',', '[', ']', '{', '}'};
                     var arrayExtraido = extraido.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                    //foreach (var substring in arrayExtraido)
-                    //{
-                    //    Debug.WriteLine(substring);
-                    //}
-                    // Convertir el array en una lista de strings
-                    List<string> listExtraido = new List<string>(arrayExtraido);
-                    foreach (var elemento in listExtraido)
+                    List<string> listaErrores = new List<string>();
+
+                    for (int i = 0; i < arrayExtraido.Length; i++)
                     {
-                        if (elemento.Length > 1) {
-                            lboxResponse.Items.Add(elemento);
+                        //if (elemento.Contains("\"numeroControl\"") || elemento.Contains("\"resultado\".false") || elemento.Contains("\"descripcion\"") || elemento.Contains("\"warning\""))
+                        if (arrayExtraido[i].Contains("\"numeroControl\"") && arrayExtraido[i + 1].Contains("false")) 
+                        {
+                            listaErrores.Add(arrayExtraido[i]);
+                            listaErrores.Add(arrayExtraido[i + 1]);
+                            listaErrores.Add(arrayExtraido[i + 2]);
+                            listaErrores.Add(arrayExtraido[i + 3]);
+                            listaErrores.Add("------");
+                        }
+                        if ( arrayExtraido[i].Contains("\"numeroControl\"") && arrayExtraido[i + 3].Length > 12 )
+                        {
+                            listaErrores.Add(arrayExtraido[i]);
+                            listaErrores.Add(arrayExtraido[i + 1]);
+                            listaErrores.Add(arrayExtraido[i + 2]);
+                            listaErrores.Add(arrayExtraido[i + 3]);
+                            listaErrores.Add("------");
                         }
                     }
+
+
+                    // Convertir el array en una lista de strings
+                    //List<string> listExtraido = new List<string>(arrayExtraido);
+                    List<string> listExtraido = listaErrores;
+                    foreach (var elemento in listExtraido)
+                    {
+                      if (elemento.Length > 1) {
+                          lboxResponse.Items.Add(elemento);
+                      }
+                    }
+                    
                 }
                 else 
                 {

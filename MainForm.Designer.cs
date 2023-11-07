@@ -32,7 +32,6 @@ namespace pruebaAcadForm
             this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lboxResponse = new System.Windows.Forms.ListBox();
-            this.lboxControles = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // button1
@@ -63,20 +62,11 @@ namespace pruebaAcadForm
             this.lboxResponse.Size = new System.Drawing.Size(383, 173);
             this.lboxResponse.TabIndex = 13;
             // 
-            // lboxControles
-            // 
-            this.lboxControles.FormattingEnabled = true;
-            this.lboxControles.Location = new System.Drawing.Point(122, 200);
-            this.lboxControles.Name = "lboxControles";
-            this.lboxControles.Size = new System.Drawing.Size(196, 134);
-            this.lboxControles.TabIndex = 14;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 371);
-            this.Controls.Add(this.lboxControles);
+            this.ClientSize = new System.Drawing.Size(532, 249);
             this.Controls.Add(this.lboxResponse);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.button1);
@@ -94,6 +84,5 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ListBox lboxResponse;
-        private System.Windows.Forms.ListBox lboxControles;
     }
 }
