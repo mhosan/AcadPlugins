@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Diagnostics;
-using Newtonsoft.Json;
 using System.Windows.Forms;
 
 namespace pruebaAcadForm
@@ -32,7 +31,8 @@ namespace pruebaAcadForm
                 respuestaCruda = respuestaCruda.Substring(1);
                 respuestaCruda = respuestaCruda.Substring(0, respuestaCruda.Length - 1);
 
-                // Deserializar el JSON en un objeto C#
+                // Deserializar el JSON en un objeto C#. Ojo que se usa la libreria Newtonsoft.json la cual
+                // no se encuentra instalada!
                 //String[] objetoDeserializado = JsonConvert.DeserializeObject<String[]>(respuestaCruda);
 
                 // Ahora puedes trabajar con el objetoDeserializado que contiene los datos del JSON response
