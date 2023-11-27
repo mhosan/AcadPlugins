@@ -32,6 +32,8 @@ namespace pruebaAcadForm
             this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lboxResponse = new System.Windows.Forms.ListBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnUnRegister = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -62,11 +64,33 @@ namespace pruebaAcadForm
             this.lboxResponse.Size = new System.Drawing.Size(383, 173);
             this.lboxResponse.TabIndex = 13;
             // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(13, 110);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(101, 41);
+            this.btnRegister.TabIndex = 14;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // btnUnRegister
+            // 
+            this.btnUnRegister.Location = new System.Drawing.Point(13, 161);
+            this.btnUnRegister.Name = "btnUnRegister";
+            this.btnUnRegister.Size = new System.Drawing.Size(100, 42);
+            this.btnUnRegister.TabIndex = 15;
+            this.btnUnRegister.Text = "Unregister";
+            this.btnUnRegister.UseVisualStyleBackColor = true;
+            this.btnUnRegister.Click += new System.EventHandler(this.btnUnRegister_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 249);
+            this.Controls.Add(this.btnUnRegister);
+            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.lboxResponse);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.button1);
@@ -84,5 +108,7 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ListBox lboxResponse;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnUnRegister;
     }
 }

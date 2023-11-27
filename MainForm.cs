@@ -173,6 +173,16 @@ namespace pruebaAcadForm
             this.Close();
         }
 
-        
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Register registrar = new Register();
+            registrar.RegisterMyApp();
+        }
+
+        private void btnUnRegister_Click(object sender, EventArgs e)
+        {
+            Register registrar = new Register();
+            registrar.UnregisterMyApp();
+        }
     }
 }

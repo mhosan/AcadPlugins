@@ -202,6 +202,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -512,7 +520,7 @@
             {
             "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:TARGETDIR"
@@ -536,15 +544,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AcadUtils"
-        "ProductCode" = "8:{7C6304C0-6D9C-48E5-A4B9-11C99B08216E}"
-        "PackageCode" = "8:{91A32ECB-1527-4812-885C-459E367E6841}"
+        "ProductCode" = "8:{FD4AB12B-DD26-4133-B046-EA01FE8D2064}"
+        "PackageCode" = "8:{4380F509-01D2-4A09-95B8-BF1B3C7C6AAF}"
         "UpgradeCode" = "8:{CD1E1D6C-28DF-4854-BCCD-2E0B071ED4B9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Argengis "
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://argengis.dx.am/"
