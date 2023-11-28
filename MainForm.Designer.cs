@@ -48,9 +48,9 @@ namespace pruebaAcadForm
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(421, 200);
+            this.btnClose.Location = new System.Drawing.Point(418, 200);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(82, 29);
+            this.btnClose.Size = new System.Drawing.Size(102, 35);
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -59,16 +59,16 @@ namespace pruebaAcadForm
             // lboxResponse
             // 
             this.lboxResponse.FormattingEnabled = true;
-            this.lboxResponse.Location = new System.Drawing.Point(122, 15);
+            this.lboxResponse.Location = new System.Drawing.Point(129, 14);
             this.lboxResponse.Name = "lboxResponse";
-            this.lboxResponse.Size = new System.Drawing.Size(383, 173);
+            this.lboxResponse.Size = new System.Drawing.Size(391, 173);
             this.lboxResponse.TabIndex = 13;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(13, 110);
+            this.btnRegister.Location = new System.Drawing.Point(13, 78);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(101, 41);
+            this.btnRegister.Size = new System.Drawing.Size(102, 35);
             this.btnRegister.TabIndex = 14;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -76,9 +76,9 @@ namespace pruebaAcadForm
             // 
             // btnUnRegister
             // 
-            this.btnUnRegister.Location = new System.Drawing.Point(13, 161);
+            this.btnUnRegister.Location = new System.Drawing.Point(13, 144);
             this.btnUnRegister.Name = "btnUnRegister";
-            this.btnUnRegister.Size = new System.Drawing.Size(100, 42);
+            this.btnUnRegister.Size = new System.Drawing.Size(102, 35);
             this.btnUnRegister.TabIndex = 15;
             this.btnUnRegister.Text = "Unregister";
             this.btnUnRegister.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@ namespace pruebaAcadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 249);
+            this.ClientSize = new System.Drawing.Size(532, 246);
             this.Controls.Add(this.btnUnRegister);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.lboxResponse);
