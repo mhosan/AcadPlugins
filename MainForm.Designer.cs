@@ -34,6 +34,9 @@ namespace pruebaAcadForm
             this.lboxResponse = new System.Windows.Forms.ListBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnUnRegister = new System.Windows.Forms.Button();
+            this.statStripRegister = new System.Windows.Forms.StatusStrip();
+            this.labelRegister = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statStripRegister.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -84,11 +87,27 @@ namespace pruebaAcadForm
             this.btnUnRegister.UseVisualStyleBackColor = true;
             this.btnUnRegister.Click += new System.EventHandler(this.btnUnRegister_Click);
             // 
+            // statStripRegister
+            // 
+            this.statStripRegister.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRegister});
+            this.statStripRegister.Location = new System.Drawing.Point(0, 242);
+            this.statStripRegister.Name = "statStripRegister";
+            this.statStripRegister.Size = new System.Drawing.Size(532, 22);
+            this.statStripRegister.TabIndex = 16;
+            this.statStripRegister.Text = "statusStrip1";
+            // 
+            // labelRegister
+            // 
+            this.labelRegister.Name = "labelRegister";
+            this.labelRegister.Size = new System.Drawing.Size(0, 17);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 246);
+            this.ClientSize = new System.Drawing.Size(532, 264);
+            this.Controls.Add(this.statStripRegister);
             this.Controls.Add(this.btnUnRegister);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.lboxResponse);
@@ -100,7 +119,10 @@ namespace pruebaAcadForm
             this.Text = "Preview controles geográficos";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.statStripRegister.ResumeLayout(false);
+            this.statStripRegister.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,5 +132,7 @@ namespace pruebaAcadForm
         private System.Windows.Forms.ListBox lboxResponse;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnUnRegister;
+        private System.Windows.Forms.StatusStrip statStripRegister;
+        private System.Windows.Forms.ToolStripStatusLabel labelRegister;
     }
 }

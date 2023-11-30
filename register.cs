@@ -5,6 +5,10 @@ using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Threading;
+using System;
 
 namespace pruebaAcadForm
 {
@@ -44,6 +48,10 @@ namespace pruebaAcadForm
             regAppAddInKey.SetValue("LOADER", sAssemblyPath, RegistryValueKind.String);
             regAppAddInKey.SetValue("MANAGED", 1, RegistryValueKind.DWord);
             MessageBox.Show("Plugin registrado OK!");
+            MainForm showMessageStrip = new MainForm();
+            showMessageStrip.SetStatusStrip(true);
+            //statusLabel.Invoke(new Action(() => ConfigurarStatus(nuevoTexto)));
+
             regAcadAppKey.Close();
         }
 
@@ -70,6 +78,8 @@ namespace pruebaAcadForm
                     regAcadAppKey.Close();
                     MessageBox.Show("Plugin desregistrado!");
                     appUnRegistered = true;
+                    MainForm showMessageStrip = new MainForm();
+                    showMessageStrip.SetStatusStrip(false);
                     return;
                 }
             }
@@ -77,7 +87,24 @@ namespace pruebaAcadForm
             {
                 MessageBox.Show("El Plugin no está registrado!");
             }
-
         }
+
+        public bool CheckIfRegister() {
+            bool appRegistered = false;
+
+            string sProdKey = HostApplicationServices.Current.MachineRegistryProductRootKey;
+            string sAppName = "MyApp";
+            Autodesk.AutoCAD.Runtime.RegistryKey regAcadProdKey = Autodesk.AutoCAD.Runtime.Registry.CurrentUser.OpenSubKey(sProdKey);
+            Autodesk.AutoCAD.Runtime.RegistryKey regAcadAppKey = regAcadProdKey.OpenSubKey("Applications", true);
+            string[] subKeys = regAcadAppKey.GetSubKeyNames();
+            foreach (string subKey in subKeys)
+            {
+                if (subKey.Equals(sAppName))
+                {
+                    appRegistered = true;
+                }
+            }
+            return appRegistered;
+        } 
     }
 }

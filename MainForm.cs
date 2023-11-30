@@ -17,6 +17,7 @@ using Autodesk.AutoCAD.Runtime;
 using System.Dynamic;
 using System.Diagnostics;
 using System.Xml.Linq;
+using Microsoft.Win32;
 
 
 namespace pruebaAcadForm
@@ -31,12 +32,28 @@ namespace pruebaAcadForm
         public MainForm()
         {
             InitializeComponent();
+            //labelRegister.Text = "caca";
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
             doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
             listaControles = new List<int>();
+            Register registrar = new Register();
+            bool showRegister = registrar.CheckIfRegister();
+            SetStatusStrip(showRegister);
+        }
+
+        public void SetStatusStrip(bool showRegister) {
+            if (showRegister)
+            {
+                labelRegister.Text = "Estado de registración: Plugin registrado";
+            }
+            else
+            {
+                labelRegister.Text = "Estado de registración: Plugin NO registrado";
+            }
+
         }
 
 
