@@ -15,6 +15,9 @@ namespace pruebaAcadForm
     class Register
     {
 
+        /// <summary>
+        /// Registrar el plugin en Autocad
+        /// </summary>
         [CommandMethod("RegisterMyApp")]
         public void RegisterMyApp()
         {
@@ -48,13 +51,13 @@ namespace pruebaAcadForm
             regAppAddInKey.SetValue("LOADER", sAssemblyPath, RegistryValueKind.String);
             regAppAddInKey.SetValue("MANAGED", 1, RegistryValueKind.DWord);
             MessageBox.Show("Plugin registrado OK!");
-            MainForm showMessageStrip = new MainForm();
-            showMessageStrip.SetStatusStrip(true);
-            //statusLabel.Invoke(new Action(() => ConfigurarStatus(nuevoTexto)));
-
+            
             regAcadAppKey.Close();
         }
 
+        /// <summary>
+        /// Des registrar el plugin en Autocad
+        /// </summary>
         [CommandMethod("UnregisterMyApp")]
         public void UnregisterMyApp()
         {
@@ -78,8 +81,6 @@ namespace pruebaAcadForm
                     regAcadAppKey.Close();
                     MessageBox.Show("Plugin desregistrado!");
                     appUnRegistered = true;
-                    MainForm showMessageStrip = new MainForm();
-                    showMessageStrip.SetStatusStrip(false);
                     return;
                 }
             }

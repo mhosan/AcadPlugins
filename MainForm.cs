@@ -44,17 +44,7 @@ namespace pruebaAcadForm
             SetStatusStrip(showRegister);
         }
 
-        public void SetStatusStrip(bool showRegister) {
-            if (showRegister)
-            {
-                labelRegister.Text = "Estado de registración: Plugin registrado";
-            }
-            else
-            {
-                labelRegister.Text = "Estado de registración: Plugin NO registrado";
-            }
-
-        }
+        
 
 
         /// <summary>
@@ -190,16 +180,48 @@ namespace pruebaAcadForm
             this.Close();
         }
 
+        /// <summary>
+        /// Registrar el plugin en Autocad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegister_Click(object sender, EventArgs e)
         {
             Register registrar = new Register();
             registrar.RegisterMyApp();
+            SetStatusStrip(true);
         }
-
+        
+        /// <summary>
+        /// Des registrar el plugin en Autocad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUnRegister_Click(object sender, EventArgs e)
         {
             Register registrar = new Register();
             registrar.UnregisterMyApp();
+            SetStatusStrip(false);
+        }
+
+
+        /// <summary>
+        /// Actualizar statusStrip
+        /// </summary>
+        /// <param name="showRegister"></param>
+        public void SetStatusStrip(bool showRegister)
+        {
+            if (showRegister)
+            {
+                labelRegister.BackColor = Color.LightGreen;
+                labelRegister.Text = "Estado de registración: Plugin registrado";
+            }
+            else
+            {
+                labelRegister.BackColor = Color.LightYellow;
+                labelRegister.Text = "Estado de registración: Plugin NO registrado";
+            }
+
         }
     }
 }

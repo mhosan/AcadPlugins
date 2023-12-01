@@ -101,6 +101,7 @@ namespace pruebaAcadForm
             // 
             this.labelRegister.Name = "labelRegister";
             this.labelRegister.Size = new System.Drawing.Size(0, 17);
+            this.labelRegister.ToolTipText = "Muestra si el plugin se encuentra registrado en Autocad.";
             // 
             // MainForm
             // 
