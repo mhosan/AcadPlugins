@@ -34,6 +34,8 @@ namespace pruebaAcadForm
             InitializeComponent();
             //labelRegister.Text = "caca";
         }
+        
+        
         private void MainForm_Load(object sender, EventArgs e)
         {
             doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
@@ -221,6 +223,15 @@ namespace pruebaAcadForm
                 labelRegister.BackColor = Color.LightYellow;
                 labelRegister.Text = "Estado de registración: Plugin NO registrado";
             }
+
+        }
+
+        private void btnMacAddress_Click(object sender, EventArgs e)
+        {
+            Util RecuperarControles = new Util();
+            string placaRed = RecuperarControles.MacAddress();
+            
+            lblMacAddress.Text = placaRed;
 
         }
     }

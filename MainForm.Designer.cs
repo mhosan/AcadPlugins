@@ -36,6 +36,8 @@ namespace pruebaAcadForm
             this.btnUnRegister = new System.Windows.Forms.Button();
             this.statStripRegister = new System.Windows.Forms.StatusStrip();
             this.labelRegister = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnMacAddress = new System.Windows.Forms.Button();
+            this.lblMacAddress = new System.Windows.Forms.Label();
             this.statStripRegister.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,11 +105,32 @@ namespace pruebaAcadForm
             this.labelRegister.Size = new System.Drawing.Size(0, 17);
             this.labelRegister.ToolTipText = "Muestra si el plugin se encuentra registrado en Autocad.";
             // 
+            // btnMacAddress
+            // 
+            this.btnMacAddress.Location = new System.Drawing.Point(129, 200);
+            this.btnMacAddress.Name = "btnMacAddress";
+            this.btnMacAddress.Size = new System.Drawing.Size(98, 28);
+            this.btnMacAddress.TabIndex = 17;
+            this.btnMacAddress.Text = "MacAddress";
+            this.btnMacAddress.UseVisualStyleBackColor = true;
+            this.btnMacAddress.Click += new System.EventHandler(this.btnMacAddress_Click);
+            // 
+            // lblMacAddress
+            // 
+            this.lblMacAddress.AutoSize = true;
+            this.lblMacAddress.Location = new System.Drawing.Point(238, 203);
+            this.lblMacAddress.Name = "lblMacAddress";
+            this.lblMacAddress.Size = new System.Drawing.Size(16, 13);
+            this.lblMacAddress.TabIndex = 18;
+            this.lblMacAddress.Text = "---";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 264);
+            this.Controls.Add(this.lblMacAddress);
+            this.Controls.Add(this.btnMacAddress);
             this.Controls.Add(this.statStripRegister);
             this.Controls.Add(this.btnUnRegister);
             this.Controls.Add(this.btnRegister);
@@ -135,5 +158,7 @@ namespace pruebaAcadForm
         private System.Windows.Forms.Button btnUnRegister;
         private System.Windows.Forms.StatusStrip statStripRegister;
         private System.Windows.Forms.ToolStripStatusLabel labelRegister;
+        private System.Windows.Forms.Button btnMacAddress;
+        private System.Windows.Forms.Label lblMacAddress;
     }
 }

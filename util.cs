@@ -4,13 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 
 namespace pruebaAcadForm
 {
     internal class Util
     {
+        /// <summary>
+        /// Buscar la mac address del equipo donde está instalado el plugin
+        /// </summary>
+        /// <returns></returns>
+        public string MacAddress() {
+            var macAddr =
+                (
+                    from nic in NetworkInterface.GetAllNetworkInterfaces()
+                    where nic.OperationalStatus == OperationalStatus.Up
+                    select nic.GetPhysicalAddress().ToString()
+                ).FirstOrDefault();
+
+            return macAddr;
+        }
+
+
+        /// <summary>
+        /// Devuelve una lista con todos los controles geográficos activos
+        /// </summary>
         public async Task <List<int>> ListControles() {
             
             //await Task.Delay(1000); // Ejemplo de operación asincrónica simulada de 1 segundo
@@ -68,7 +89,9 @@ namespace pruebaAcadForm
 
     }
 
-    // Clase que representa la estructura del JSON response
+    /// <summary>
+    /// Clase que representa la estructura del Json response
+    /// </summary>
     public class Controles
     {
         public int id { get; }
