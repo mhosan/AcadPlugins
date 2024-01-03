@@ -77,6 +77,7 @@ namespace pruebaAcadForm
                     nuevaRutaArchivo = Path.Combine(directorio, nuevoNombreArchivo);
 
                     ///DwgVersion.AC1021 corresponde a Autocad 2007
+                    ///todo: cuando se está trabajando con un archivo readonly da error
                     bd.DxfOut(nuevaRutaArchivo, 16, DwgVersion.AC1021);
                     _ = makeRequest(listaControles);
                 }
